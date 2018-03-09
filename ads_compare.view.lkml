@@ -6,6 +6,7 @@ view: ads_compare {
                 a.name as ad_name,
                 ad.name as adset_name,
                 c.name as campaign_name,
+                i.date_start as date_start,
                 sum(i.spend) as spend,
                 sum(i.impressions) as impresssions,
                 sum(i.clicks) as clicks,
@@ -17,13 +18,14 @@ view: ads_compare {
             on  a.campaign_id = c.id
           join  facebookads.ad_sets ad
             on  a.adset_id = ad.id
-      group by  1,2,3,4
+      group by  1,2,3,4,5
       ),
       google_perf as (
         select  a.id as ad_id,
                 'google_ad_default'::text as ad_name,
                 g.name as adset_name,
                 c.name as campaign_name,
+                apr.date_start date_start,
                 sum(apr.cost/1000000) as spend,
                 sum(apr.impressions) as impresssions,
                 sum(apr.clicks) as clicks,
@@ -35,12 +37,13 @@ view: ads_compare {
             on  a.ad_group_id = g.id
           join  adwords.campaigns c
             on  g.campaign_id = c.id
-      group by  1,2,3,4
+      group by  1,2,3,4,5
       )
         select ad_id,
               ad_name,
               adset_name,
               campaign_name,
+              date_start,
                 spend,
                 impresssions,
                 clicks,
@@ -50,6 +53,7 @@ view: ads_compare {
                ad_name,
                adset_name,
                campaign_name,
+              date_start,
                 spend,
                 impresssions,
                 clicks,
@@ -84,6 +88,10 @@ view: ads_compare {
     sql: ${TABLE}.campaign_name ;;
   }
 
+  dimension: date_start {
+    type: date
+    sql: ${TABLE}.date_start ;;
+  }
   measure: spend {
     type: sum
     value_format_name: usd
@@ -124,6 +132,7 @@ view: ads_compare {
       ad_name,
       adset_name,
       campaign_name,
+      date_start,
       spend,
       impresssions,
       clicks,
