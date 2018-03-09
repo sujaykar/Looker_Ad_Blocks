@@ -1,4 +1,4 @@
-connection: "pb_n_jays_postgres"
+connection: "redshift"
 
 # include all the views
 include: "*.view"
