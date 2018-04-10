@@ -99,7 +99,11 @@ view: facebook_insights {
     sql: ${TABLE}.newsfeed_impressions ;;
     drill_fields: [campaigns.name, ads.name, newsfeed_impressions]
   }
-
+  measure: Total_Subscription {
+    type: sum
+    sql: ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 ;;
+    drill_fields: [campaigns.name, ads.name, Total_Subscription ]
+  }
   measure: reach {
     type: sum
     sql: ${TABLE}.reach ;;
@@ -185,6 +189,13 @@ view: facebook_insights {
   measure: cost_per_click {
     type: number
     sql: ${spend}/NULLIF(${clicks},0) ;;
+    value_format_name: usd
+    drill_fields: [campaigns.name, ads.name, cost_per_click]
+  }
+
+  measure: cpa {
+    type: number
+    sql: ${spend}/NULLIF(${Total_Subscription},0) ;;
     value_format_name: usd
     drill_fields: [campaigns.name, ads.name, cost_per_click]
   }
