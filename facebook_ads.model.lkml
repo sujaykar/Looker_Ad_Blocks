@@ -62,6 +62,12 @@ explore: facebook_insights {
     relationship: many_to_one
   }
 
+  join: facebook_ad_accounts {
+    type: left_outer
+    sql_on: ${facebook_ads.account_id} = ${facebook_ad_accounts.id} ;;
+    relationship: many_to_one
+  }
+
   join: facebook_ad_sets {
     type: left_outer
     sql_on: ${facebook_ads.adset_id} = ${facebook_ad_sets.id} ;;
