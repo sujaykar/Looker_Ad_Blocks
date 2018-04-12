@@ -36,6 +36,12 @@ explore: campaign_performance_reports {
 
 ## Facebook Ads ##
 explore: facebook_ads {
+  join: facebook_ad_accounts {
+    type: left_outer
+    sql_on: ${facebook_ads.account_id} = split_part(${facebook_ad_accounts.id},'act_', 2);;
+    relationship: many_to_one
+  }
+
   join: facebook_campaigns {
     type: left_outer
     sql_on: ${facebook_ads.campaign_id} = ${facebook_campaigns.id} ;;
