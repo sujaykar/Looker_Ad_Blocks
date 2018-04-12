@@ -64,7 +64,7 @@ explore: facebook_insights {
 
   join: facebook_ad_accounts {
     type: left_outer
-    sql_on: ${facebook_ads.account_id} = ${facebook_ad_accounts.id} ;;
+    sql_on: ${facebook_ads.account_id} = split_part(${facebook_ad_accounts.id},'act_', 2);;
     relationship: many_to_one
   }
 

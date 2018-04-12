@@ -99,11 +99,31 @@ view: facebook_insights {
     sql: ${TABLE}.newsfeed_impressions ;;
     drill_fields: [campaigns.name, ads.name, newsfeed_impressions]
   }
+
   measure: Total_Subscription {
     type: sum
     sql: ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 ;;
     drill_fields: [campaigns.name, ads.name, Total_Subscription ]
   }
+
+  measure: Total_Upgraded_to_Select {
+    type: sum
+    sql: ${TABLE}.actions_default_offsite_conversion_custom_326762647666474 ;;
+    drill_fields: [campaigns.name, ads.name, Total_Upgraded_to_Select ]
+  }
+
+  measure: Total_Added_Edit_to_Cart_Standard {
+    type: sum
+    sql: ${TABLE}.actions_default_offsite_conversion_custom_175465869773472 ;;
+    drill_fields: [campaigns.name, ads.name, Total_Added_Edit_to_Cart_Standard ]
+  }
+
+  measure: Total_Reactivated {
+    type: sum
+    sql: ${TABLE}.actions_default_offsite_conversion_custom_665711980253841 ;;
+    drill_fields: [campaigns.name, ads.name, Total_Reactivated ]
+  }
+
   measure: reach {
     type: sum
     sql: ${TABLE}.reach ;;
@@ -197,7 +217,7 @@ view: facebook_insights {
     type: number
     sql: ${spend}/NULLIF(${Total_Subscription},0) ;;
     value_format_name: usd
-    drill_fields: [campaigns.name, ads.name, cost_per_click]
+    drill_fields: [campaigns.name, ads.name, cpa]
   }
 
   measure: click_through_rate {
