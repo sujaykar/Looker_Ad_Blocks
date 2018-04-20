@@ -123,7 +123,7 @@
     explore: facebook_insights
     type: single_value
     fields:
-    - facebook_insights.click_through_rate
+    - facebook_insights.CTR
     limit: 500
     column_limit: 50
     custom_color_enabled: false
@@ -480,7 +480,7 @@
     - facebook_insights.impressions
     - facebook_insights.average_frequency
     - facebook_insights.clicks
-    - facebook_insights.click_through_rate
+    - facebook_insights.CTR
     - facebook_insights.cost_per_click
     sorts:
     - facebook_insights.impressions desc
