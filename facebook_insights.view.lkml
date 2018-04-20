@@ -100,13 +100,13 @@ view: facebook_insights {
     drill_fields: [campaigns.name, ads.name, newsfeed_impressions]
   }
 
-  measure: Total_Subscription {
+  measure: New_Subscriptions {
     type: sum
     sql: ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 ;;
-    drill_fields: [campaigns.name, ads.name, Total_Subscription ]
+    drill_fields: [campaigns.name, ads.name, New_Subscriptions ]
   }
 
-  measure: Total_Conversion {
+  measure: Total_Conversions {
     type: number
     sql: sum(case
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Lift (Preview) - Select - Spring Edit 2018'
@@ -118,7 +118,7 @@ view: facebook_insights {
           else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
             end
             ) ;;
-    drill_fields: [campaigns.name, ads.name, Total_Conversion ]
+    drill_fields: [campaigns.name, ads.name, Total_Conversions ]
   }
 
   measure: Total_Upgraded_to_Select {
@@ -230,7 +230,7 @@ view: facebook_insights {
 
   measure: cpa {
     type: number
-    sql: ${spend}/NULLIF(${Total_Subscription},0);;
+    sql: ${spend}/NULLIF(${New_Subscriptions},0);;
     value_format_name: usd
     drill_fields: [campaigns.name, ads.name, cpa]
   }
