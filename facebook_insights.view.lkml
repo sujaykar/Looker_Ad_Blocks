@@ -228,11 +228,11 @@ view: facebook_insights {
     drill_fields: [campaigns.name, ads.name, cost_per_click]
   }
 
-  measure: cpa {
+  measure: CPA {
     type: number
     sql: ${spend}/NULLIF(${New_Subscriptions},0);;
     value_format_name: usd
-    drill_fields: [campaigns.name, ads.name, cpa]
+    drill_fields: [campaigns.name, ads.name, CPA]
   }
 
   measure: cost_per_conversion {
