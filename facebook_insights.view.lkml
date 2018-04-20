@@ -235,6 +235,13 @@ view: facebook_insights {
     drill_fields: [campaigns.name, ads.name, CPA]
   }
 
+  measure: CPM {
+    type: number
+    sql: ${spend}/NULLIF(${impressions},0);;
+    value_format_name: usd
+    drill_fields: [campaigns.name, ads.name, CPM]
+  }
+
   measure: cost_per_conversion {
     type: number
     sql: ${spend}/NULLIF(sum(case
