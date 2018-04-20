@@ -237,7 +237,7 @@ view: facebook_insights {
 
   measure: CPM {
     type: number
-    sql: ${spend}/NULLIF(${impressions},0);;
+    sql: ${spend}/NULLIF(${impressions}*1000,0);;
     value_format_name: usd
     drill_fields: [campaigns.name, ads.name, CPM]
   }
