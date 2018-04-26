@@ -115,6 +115,10 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_326762647666474 -- Upgraded to Select
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Reactivations - Spring 2018'
             then ${TABLE}.actions_default_offsite_conversion_custom_665711980253841 -- Reactivated
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'New Year, New You Capsule Collection - Dec/Jan 2017'
+            then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
+            then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
           else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
             end
             ) ;;
@@ -251,6 +255,10 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_326762647666474 -- Upgraded to Select
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Reactivations - Spring 2018'
             then ${TABLE}.actions_default_offsite_conversion_custom_665711980253841 -- Reactivated
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'New Year, New You Capsule Collection - Dec/Jan 2017'
+            then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
+            then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
           else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
             end
             )
@@ -268,6 +276,10 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_326762647666474 -- Upgraded to Select
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Reactivations - Spring 2018'
             then ${TABLE}.actions_default_offsite_conversion_custom_665711980253841 -- Reactivated
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'New Year, New You Capsule Collection - Dec/Jan 2017'
+            then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
+            then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
           else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
             end
             )
