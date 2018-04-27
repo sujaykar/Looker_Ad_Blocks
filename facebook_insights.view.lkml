@@ -269,7 +269,7 @@ view: facebook_insights {
 
   measure: CTC {
     type: number
-    sql: ${clicks}/NULLIF(sum(case
+    sql: NULLIF(sum(case
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Lift (Preview) - Select - Spring Edit 2018'
             then ${TABLE}.actions_default_offsite_conversion_custom_175465869773472 -- Added Edit to Cart - Standard
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} in ('Upgrades - Non-Select - Spring Edit 2018','Upgrades - Select - Spring 2018')
@@ -283,8 +283,8 @@ view: facebook_insights {
           else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
             end
             )
-          ,0);;
-    value_format_name: usd
+          ,0)/${clicks};;
+    value_format_name: percent_1
     drill_fields: [campaigns.name, ads.name, CTC]
   }
 
