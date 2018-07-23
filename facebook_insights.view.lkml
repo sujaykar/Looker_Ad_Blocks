@@ -288,6 +288,27 @@ view: facebook_insights {
     drill_fields: [campaigns.name, ads.name, CTC]
   }
 
+  measure: ITC {
+    type: number
+    sql: NULLIF(sum(case
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Lift (Preview) - Select - Spring Edit 2018'
+            then ${TABLE}.actions_default_offsite_conversion_custom_175465869773472 -- Added Edit to Cart - Standard
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} in ('Upgrades - Non-Select - Spring Edit 2018','Upgrades - Select - Spring 2018')
+            then ${TABLE}.actions_default_offsite_conversion_custom_326762647666474 -- Upgraded to Select
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Reactivations - Spring 2018'
+            then ${TABLE}.actions_default_offsite_conversion_custom_665711980253841 -- Reactivated
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'New Year, New You Capsule Collection - Dec/Jan 2017'
+            then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
+          when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
+            then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
+          else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+            end
+            )
+          ,0)/${impressions}*1000;;
+    value_format_name: percent_1
+    drill_fields: [campaigns.name, ads.name, CTC]
+  }
+
   measure: CTR {
     type: number
     sql: ${clicks}/NULLIF(${impressions},0) ;;
