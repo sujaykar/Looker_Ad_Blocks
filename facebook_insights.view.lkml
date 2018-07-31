@@ -226,6 +226,7 @@ view: facebook_insights {
   }
 
   measure: cost_per_click {
+    label: "CPC"
     type: number
     sql: ${spend}/NULLIF(${clicks},0) ;;
     value_format_name: usd
@@ -233,6 +234,7 @@ view: facebook_insights {
   }
 
   measure: CPA {
+    label: "CPA"
     type: number
     sql: ${spend}/NULLIF(${New_Subscriptions},0);;
     value_format_name: usd
@@ -240,6 +242,7 @@ view: facebook_insights {
   }
 
   measure: CPM {
+    label: "CPM"
     type: number
     sql: ${spend}/NULLIF(${impressions},0)*1000;;
     value_format_name: usd
@@ -247,6 +250,7 @@ view: facebook_insights {
   }
 
   measure: CPC {
+    label: "Cost per Conversion"
     type: number
     sql: ${spend}/NULLIF(sum(case
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Lift (Preview) - Select - Spring Edit 2018'
@@ -268,6 +272,7 @@ view: facebook_insights {
   }
 
   measure: CTC {
+    label: "CTC"
     type: number
     sql: NULLIF(sum(case
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Lift (Preview) - Select - Spring Edit 2018'
@@ -289,6 +294,7 @@ view: facebook_insights {
   }
 
   measure: ITC {
+    label: "ITC"
     type: number
     sql: NULLIF(sum(case
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} = 'Lift (Preview) - Select - Spring Edit 2018'
@@ -310,6 +316,7 @@ view: facebook_insights {
   }
 
   measure: CTR {
+    label: "CTR"
     type: number
     sql: ${clicks}/NULLIF(${impressions},0) ;;
     value_format_name: percent_1
