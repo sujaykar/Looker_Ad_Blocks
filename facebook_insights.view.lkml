@@ -249,7 +249,7 @@ view: facebook_insights {
     drill_fields: [campaigns.name, ads.name, CPM]
   }
 
-  measure: CPC {
+  measure: cost_per_conversion {
     label: "Cost per Conversion"
     type: number
     sql: ${spend}/NULLIF(sum(case
@@ -268,7 +268,7 @@ view: facebook_insights {
             )
           ,0);;
     value_format_name: usd
-    drill_fields: [campaigns.name, ads.name, CPC]
+    drill_fields: [campaigns.name, ads.name, cost_per_conversion]
   }
 
   measure: CTC {
