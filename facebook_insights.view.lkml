@@ -102,7 +102,7 @@ view: facebook_insights {
 
   measure: New_Subscriptions {
     type: sum
-    sql: ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 ;;
+    sql: ${TABLE}.actions_default_offsite_conversion_custom_1884496891815231 ;;
     drill_fields: [campaigns.name, ads.name, New_Subscriptions ]
   }
 
@@ -119,7 +119,8 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
             then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
-          else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          --else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          else ${TABLE}.actions_default_offsite_conversion_custom_1884496891815231 -- New Sub All
             end
             ) ;;
     drill_fields: [campaigns.name, ads.name, Total_Conversions ]
@@ -263,7 +264,8 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
             then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
-          else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          --else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          else ${TABLE}.actions_default_offsite_conversion_custom_1884496891815231 -- New Sub All
             end
             )
           ,0);;
@@ -285,7 +287,8 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
             then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
-          else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          --else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          else ${TABLE}.actions_default_offsite_conversion_custom_1884496891815231 -- New Sub All
             end
             )
           ,0)/${clicks};;
@@ -307,7 +310,8 @@ view: facebook_insights {
             then ${TABLE}.actions_default_offsite_conversion_custom_808225602693187 -- Shop Purchase
           when ${facebook_ad_accounts.name} = 'Remarketing - FabFitFun' and ${facebook_campaigns.name} like 'SP - 2018 - E-Gift Cards - Prospecting - Mother%'
             then ${TABLE}.actions_default_offsite_conversion_custom_428874907488437 -- Gift Card Purchase
-          else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          --else ${TABLE}.actions_default_offsite_conversion_custom_1235449819798490 -- New Sub
+          else ${TABLE}.actions_default_offsite_conversion_custom_1884496891815231 -- New Sub All
             end
             )
           ,0)/${impressions}*1000;;
