@@ -133,8 +133,8 @@ view: facebook_insights {
   }
 
   measure: Cost_Per_Upgraded_to_Select {
-    type: sum
-    sql: ${TABLE}.actions_default_offsite_conversion_custom_326762647666474/NULLIF(${TABLE}.spend,0) ;;
+    type: number
+    sql: ${spend}/SUM(NULLIF(${TABLE}.actions_default_offsite_conversion_custom_326762647666474,0)) ;;
     value_format_name: usd
     drill_fields: [campaigns.name, ads.name, Total_Upgraded_to_Select ]
   }
@@ -146,8 +146,8 @@ view: facebook_insights {
   }
 
   measure: Cost_Per_Added_Edit_to_Cart_Standard {
-    type: sum
-    sql: ${TABLE}.actions_default_offsite_conversion_custom_175465869773472/NULLIF(${TABLE}.spend,0) ;;
+    type: number
+    sql: ${spend}/SUM(${TABLE}.actions_default_offsite_conversion_custom_175465869773472) ;;
     value_format_name: usd
     drill_fields: [campaigns.name, ads.name, Total_Added_Edit_to_Cart_Standard ]
   }
@@ -159,8 +159,8 @@ view: facebook_insights {
   }
 
   measure: Cost_Per_Reactivated {
-    type: sum
-    sql: ${TABLE}.actions_default_offsite_conversion_custom_665711980253841/NULLIF(${TABLE}.spend,0) ;;
+    type: number
+    sql: ${spend}/SUM(NULLIF(${TABLE}.actions_default_offsite_conversion_custom_665711980253841,0)) ;;
     value_format_name: usd
     drill_fields: [campaigns.name, ads.name, Total_Added_Edit_to_Cart_Standard ]
   }
