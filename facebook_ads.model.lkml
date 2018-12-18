@@ -8,6 +8,7 @@ include: "*.dashboard"
 
 ## Google Adwords ##
 explore: ad_performance_reports {
+  hidden: yes
   join: ads {
     relationship: many_to_one
     sql_on: ${ad_performance_reports.ad_id} = ${ads.id} ;;
@@ -23,6 +24,7 @@ explore: ad_performance_reports {
 }
 
 explore: campaign_performance_reports {
+  hidden: yes
   join: campaigns {
     relationship: many_to_one
     sql_on: ${campaign_performance_reports.campaign_id} = ${campaigns.id} ;;
@@ -36,6 +38,7 @@ explore: campaign_performance_reports {
 
 ## Facebook Ads ##
 explore: facebook_ads {
+  hidden: yes
   join: facebook_ad_accounts {
     type: left_outer
     sql_on: ${facebook_ads.account_id} = split_part(${facebook_ad_accounts.id},'act_', 2);;
@@ -62,6 +65,7 @@ explore: facebook_ads {
 }
 
 explore: facebook_insights {
+  hidden: yes
   join: facebook_ads {
     type: left_outer
     sql_on: ${facebook_insights.ad_id} = ${facebook_ads.id} ;;
@@ -88,4 +92,4 @@ explore: facebook_insights {
 }
 
 ## Facebook Ads and Google Adwords Comparison ##
-explore: ads_compare {}
+explore: ads_compare {hidden: yes}
